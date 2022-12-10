@@ -1,1 +1,1 @@
-module.exports = require('../linters/packages/prettier-config');
+module.exports = require('@uspect/prettier-config');

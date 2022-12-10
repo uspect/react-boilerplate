@@ -1,8 +1,5 @@
 module.exports = {
-  extends: [
-    '../linters/packages/eslint-config/app.js',
-    '../linters/packages/eslint-config-react',
-  ],
+  extends: ['@uspect/eslint-config/app', '@uspect/eslint-config-react'],
   settings: {
     parserOptions: {
       project: 'tsconfig.json',
