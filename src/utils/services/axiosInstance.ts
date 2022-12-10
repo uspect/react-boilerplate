@@ -3,8 +3,7 @@ import type { AxiosRequestConfig, AxiosError } from 'axios';
 
 import { accessTokenService } from './accessTokenService';
 
-export const ApiUrl =
-  'https://ark.onudu.com/https://italian-fabrics-dev-api.vvdev.ru/api';
+export const ApiUrl = import.meta.env.VITE_API_URL || '';
 
 const api = axios.create({
   baseURL: ApiUrl,
