@@ -1,1 +1,5 @@
-module.exports = require('@uspect/prettier-config');
+const prettierConfig = require('@uspect/prettier-config');
+
+module.exports = {
+  ...prettierConfig,
+};

@@ -1,9 +1,12 @@
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
+import { Navigate, Routes } from 'react-router';
+import { Route, useLocation } from 'react-router-dom';
 
-import { ROUTES, PrivateRoutes, PublicRoutes } from '@/resources/routes';
-import { accessTokenService } from '@/utils/services/accessTokenService';
 import { useIsAuth } from '@/hooks/useIsAuth';
+
+import { accessTokenService } from '@/utils/services/accessTokenService';
+
+import { PrivateRoutes, PublicRoutes, ROUTES } from '@/resources/routes';
 
 const Router: React.FC = () => {
   const [isAuth, setIsAuth] = useState(useIsAuth());
@@ -22,11 +25,9 @@ const Router: React.FC = () => {
 
       {isAuth ? (
         <>
-          {PrivateRoutes.map(({ path, Element }) => {
-            return <Route element={<Element />} key={path} path={path} />;
-          })}
+          {PrivateRoutes.map(({ path, Element }) => <Route element={<Element />} key={path} path={path} />)}
 
-          {/*<Route path="*" element={<Navigate to={} />} /> TODO: uncomment to main page after auth*/}
+          {/* <Route path="*" element={<Navigate to={} />} /> TODO: uncomment to main page after auth*/}
         </>
       ) : (
         <>

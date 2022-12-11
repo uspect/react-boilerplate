@@ -1,5 +1,5 @@
+import type { AxiosError, AxiosRequestConfig } from 'axios';
 import axios from 'axios';
-import type { AxiosRequestConfig, AxiosError } from 'axios';
 
 import { accessTokenService } from './accessTokenService';
 
@@ -29,7 +29,7 @@ const apiResponceErrorInterceptor = async (error: Error | AxiosError) => {
   if ((error as AxiosError).response?.status === 401) {
     accessTokenService.deleteToken();
 
-    //eslint-disable-next-line no-console
+    // eslint-disable-next-line no-console
     console.info(
       'Вы не авторизованы. Доступ запрещен. Авторизационные данные удалены',
     );
@@ -40,6 +40,6 @@ const apiResponceErrorInterceptor = async (error: Error | AxiosError) => {
 };
 
 api.interceptors.request.use(apiRequestInterceptor);
-api.interceptors.response.use((config) => config, apiResponceErrorInterceptor);
+api.interceptors.response.use(config => config, apiResponceErrorInterceptor);
 
 export { api };

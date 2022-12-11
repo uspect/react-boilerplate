@@ -1,18 +1,19 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 import { Helmet } from 'react-helmet-async';
+import { useTranslation } from 'react-i18next';
+import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { configureStore } from '@reduxjs/toolkit';
 
 import Router from '@/components/Router';
 
 import { GlobalStyles } from '@/utils/helpers/styles/globalStyles';
+
 import { DEFAULT_APP_TITLE } from '@/resources/constants';
 
 export const store = configureStore({
   reducer: {},
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: getDefaultMiddleware => getDefaultMiddleware(),
 });
 
 const App: React.FC = () => {
